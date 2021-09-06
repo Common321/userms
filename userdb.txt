@@ -1,0 +1,62 @@
+create schema User_db;
+use User_db;
+create table buyer(
+
+	buyerid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name varchar(50) NOT NULL,
+	
+	email varchar(50) NOT NULL,
+	
+	phoneno bigint NOT NULL,
+	
+	password varchar(20) NOT NULL,
+	
+	isprivileged boolean DEFAULT false,
+	
+	rewardpoints int DEFAULT 0,
+	
+	isactive boolean DEFAULT false
+
+);
+insert into buyer(name, email, phoneno, password) values ('Mark','Mark@gmail.com',9108926767,'Mark12!');
+
+insert into buyer(name, email, phoneno, password) values('Peter','Peter@gmail.com',9108926755,'Peter34!');
+
+create table seller(
+	
+	sellerid varchar(20) primary key,
+		
+	name varchar(50),
+	
+	email varchar(50),
+	
+	phoneno varchar(100),
+	
+	password varchar(50),
+	
+	isactive boolean
+);
+
+insert into seller values('s2001','Mark','Mark@gmail.com',9108926767,'Mark12!', true );
+
+insert into seller values('s2002','Peter','Peter@gmail.com',9108926755,'Peter34!', true );
+
+create table cart(
+	
+	buyerid varchar(20),    
+	prodid varchar(20),
+	quantity integer  
+);
+
+insert into cart values('b2001', 'p1009', 4);
+insert into cart values('b2002', 'p1008', 7);
+
+
+
+create table wishlist(
+
+	buyerid varchar(20),    
+	prodid varchar(20)
+);
+insert into wishlist values('b2001', 'p1009');
+insert into wishlist values('b2002', 'p1008');
